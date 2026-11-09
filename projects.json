@@ -1,154 +1,197 @@
 {
-  "generatedAt": "2026-11-09T22:13:00Z",
-  "profile": {
-    "name": "Scott Forest",
-    "handle": "critmaths",
-    "organization": "Critical Softworks / Intelligent Productions",
-    "role": "Systems, Cybersecurity & Full-Stack Software Engineer",
-    "location": "North Texas (Open to Remote & Hybrid)",
-    "email": "critmaths@gmail.com",
-    "githubUrl": "https://github.com/critmaths",
-    "portfolioUrl": "https://critmaths.github.io",
-    "websiteUrl": "https://criticalmaths.synergize.co"
-  },
-  "flagship": [
-    {
-      "repo": "omav-releases",
-      "title": "OmAV Security Suite",
-      "subtitle": "Precision Windows Antivirus, 6-Layer Active Defense & Multi-Peer WireGuard VPN",
-      "category": "rust-security",
-      "featured": true,
-      "badge": "Flagship Endpoint Security",
-      "version": "v0.9.0-beta",
-      "language": "Rust & Flutter",
-      "stars": 1,
-      "pushedAt": "2026-11-09T19:37:20Z",
-      "repoUrl": "https://github.com/critmaths/omav-releases",
-      "liveUrl": "https://omavsecurity.wordpress.com/",
-      "downloadUrl": "https://github.com/critmaths/omav-releases/releases",
-      "summary": "Next-generation Windows endpoint protection combining multi-threaded Rust (Rayon) heuristic scanning, in-memory script de-obfuscation, YARA + AMSI behavioral hooks, decoy honeypot canary traps, and zero-log ChaCha20-Poly1305 WireGuard tunneling.",
-      "highlights": [
-        "Multi-threaded Rust 2021 core engine utilizing Rayon work-stealing parallelism for sub-second heuristic & SHA-256 signature sweeps",
-        "6-Layer Active Defense Matrix integrating YARA rule evaluation, Windows AMSI script inspection, and ransomware canary honeypots",
-        "Built-in multi-peer WireGuard VPN shield with ChaCha20-Poly1305 encryption and responsive Flutter 3.24 desktop telemetry UI"
-      ],
-      "stack": ["Rust 2021", "Rayon", "Flutter 3.24", "YARA + AMSI", "WireGuard", "ChaCha20-Poly1305", "Win32 API"],
-      "blueprint": "[File / Process / Script Event]\n       |\n       +--> Layer 1-2: Rust Rayon Parallel Scanner (SHA-256 + Entropy Heuristics)\n       +--> Layer 3-4: YARA Pattern Engine + Windows AMSI In-Memory De-obfuscation\n       +--> Layer 5:   Ransomware Canary Vault Traps (.omav_canary I/O Tripwire)\n       +--> Layer 6:   Multi-Peer WireGuard Tunnel (ChaCha20-Poly1305 Zero-Log Shield)"
-    },
-    {
-      "repo": "neighbornet",
-      "title": "NeighborNet - Sovereign Mesh Platform",
-      "subtitle": "Decentralized, Off-Grid Community Mesh Network on the Reticulum Stack",
-      "category": "distributed-mesh",
-      "featured": true,
-      "badge": "12 * Open-Source Mesh",
-      "version": "v1.0.0",
-      "language": "Rust & Dart",
-      "stars": 12,
-      "pushedAt": "2026-10-26T11:45:04Z",
-      "repoUrl": "https://github.com/critmaths/neighbornet",
-      "liveUrl": "https://criticalmaths.synergize.co",
-      "downloadUrl": "https://github.com/critmaths/neighbornet/releases/tag/v1.0.0",
-      "summary": "Local-first, partition-tolerant community communications network operating without internet or central servers. Built with a native Rust cryptographic Reticulum core and a cross-platform Flutter UI.",
-      "highlights": [
-        "Asymmetric hierarchical topology separating always-on Raspberry Pi/PC transport relays from battery-constrained mobile leaf nodes",
-        "Reticulum Network Stack (RNS) cryptographic substrate with Ed25519 node identities, X25519 link encryption, and 128-bit destination hashes",
-        "Conflict-free store-and-forward replication powered by a cryptographically signed Directed Acyclic Graph (DAG)"
-      ],
-      "stack": ["Rust", "Reticulum (RNS)", "Ed25519 / X25519", "Signed DAG", "Flutter / Dart", "P2P Mesh", "Raspberry Pi"],
-      "blueprint": "       [ISP / Municipal Backbone (Optional)]\n                        |\n          +-------------+-------------+\n   [Community Pi Relay]       [Community Pi Relay]  (Always-On Transport & DAG Store)\n       /          \\               /          \\\n  [Desktop]    [Mobile]      [Desktop]    [Mobile]  (Ed25519 Signed Leaf Nodes)"
-    },
-    {
-      "repo": "crit-mail-client-releases",
-      "title": "CritMail // SIGINT Terminal",
-      "subtitle": "Zero-JS Sandboxed, AES-256-GCM Encrypted Cross-Platform Email Client",
-      "category": "rust-security",
-      "featured": true,
-      "badge": "Cross-Platform Security",
-      "version": "v1.0.0",
-      "language": "Native Desktop",
-      "stars": 0,
-      "pushedAt": "2026-10-17T21:13:04Z",
-      "repoUrl": "https://github.com/critmaths/crit-mail-client-releases",
-      "liveUrl": "https://github.com/critmaths/crit-mail-client-releases/releases/latest",
-      "downloadUrl": "https://github.com/critmaths/crit-mail-client-releases/releases/tag/v1.0.0",
-      "summary": "Ultra-fast, hack-proof email client for Windows, macOS, and Linux inspired by Winamp 3 monospace ergonomics and SIGINT command terminals. Hardware-backed credential storage and strict zero-JS message sandboxing.",
-      "highlights": [
-        "Hardware-bound credential protection combining OS DPAPI / keychain integration with local AES-256-GCM classified payload encryption",
-        "Strict zero-JS HTML sanitizer and tracking-pixel firewall eliminating remote beacon exfiltration across IMAP4 (993), POP3 (995), and SMTP (465)",
-        "Deterministic zero-rounded-corner monospace HUD engineered for rapid keyboard-first triage"
-      ],
-      "stack": ["AES-256-GCM", "Windows DPAPI", "IMAP4 / SMTP / POP3", "Zero-JS Sandbox", "Windows / macOS / Linux"],
-      "blueprint": "[Incoming TLS Stream: IMAP4:993 / POP3:995]\n       |\n       +--> Zero-JS DOM Sanitizer & Remote Pixel Firewall\n       +--> Local Vault Storage (AES-256-GCM + OS DPAPI Hardware Key)\n       +--> Monospace SIGINT Terminal Renderer (Zero External Network Calls)"
-    },
-    {
-      "repo": "WPSpamArmor",
-      "title": "CyberArmor (WPSpamArmor)",
-      "subtitle": "Zero-Cloud Layer-7 WAF, Browser Proof-of-Work & Honeypot Suite for WordPress",
-      "category": "web-security",
-      "featured": true,
-      "badge": "100% Local Privacy-First",
-      "version": "v1.0.0",
-      "language": "PHP & JS",
-      "stars": 1,
-      "pushedAt": "2026-10-26T11:45:16Z",
-      "repoUrl": "https://github.com/critmaths/WPSpamArmor",
-      "liveUrl": "https://criticalmaths.synergize.co",
-      "downloadUrl": "https://github.com/critmaths/WPSpamArmor/releases/tag/v1.0.0",
-      "summary": "Enterprise-grade open-source security, firewall, and anti-spam suite for WordPress that eliminates CAPTCHAs and third-party cloud dependencies through client-side micro Proof-of-Work and HMAC time-gates.",
-      "highlights": [
-        "Client-side micro Proof-of-Work (PoW) challenge + HMAC-signed velocity time-gate (<3s bot rejection) with zero user friction",
-        "Dynamic salted obfuscated honeypots and cache-proof REST token hydration compatible with aggressive full-page CDN caching",
-        "Lightweight Layer-7 WAF blocking SQLi, path traversal, and automated credential stuffing with 100% local GDPR compliance"
-      ],
-      "stack": ["PHP 7.4+", "WebCrypto PoW", "HMAC-SHA256", "Layer-7 WAF", "WordPress REST API", "Zero-Cloud GDPR"],
-      "blueprint": "[Client Submission] --> [Cache-Proof REST Token Hydration]\n                              |\n                              +--> 1. Browser Micro Proof-of-Work Verification\n                              +--> 2. HMAC-Signed Velocity Time-Gate (<3s Reject)\n                              +--> 3. Dynamic Salted Honeypot + Layer-7 WAF Inspection"
-    },
-    {
-      "repo": "wp-headless-hub",
-      "title": "WP Headless Preview & Live Sync Hub",
-      "subtitle": "Cryptographic Draft Previews & Instant ISR Cache Revalidation for Next.js & Astro",
-      "category": "web-security",
-      "featured": false,
-      "badge": "Headless Architecture",
-      "version": "v1.0.0",
-      "language": "PHP & TypeScript",
-      "stars": 0,
-      "pushedAt": "2026-10-12T14:21:04Z",
-      "repoUrl": "https://github.com/critmaths/wp-headless-hub",
-      "liveUrl": "https://github.com/critmaths/wp-headless-hub",
-      "downloadUrl": "https://github.com/critmaths/wp-headless-hub",
-      "summary": "Solves broken draft previews and stale CDN caches in decoupled WordPress architectures using short-lived SHA-256 HMAC tokens and asynchronous webhook revalidation.",
-      "highlights": [
-        "Generates 300-second TTL preview tokens signed with SHA-256 HMAC over post_id:user_id:expires",
-        "Constant-time signature verification (timingSafeEqual) on Next.js App Router and Astro endpoints to prevent timing side-channel attacks",
-        "Event-driven webhook dispatcher triggering instant on-demand ISR cache purging upon post publication or slug mutation"
-      ],
-      "stack": ["PHP", "Next.js", "Astro", "HMAC-SHA256", "timingSafeEqual", "On-Demand ISR", "Webhooks"],
-      "blueprint": "[WP Gutenberg Editor] --> HMAC-SHA256(post_id:user_id:expires, secret)\n                                 | (TTL: 300s)\n                                 v\n[Next.js / Astro API] --> timingSafeEqual() --> Enable Draft Mode Cookie"
-    },
-    {
-      "repo": "criticalmaths-stream-suite",
-      "title": "Neo-Tech 60 FPS Broadcast Suite",
-      "subtitle": "GPU-Accelerated OBS Overlay Studio with Web Audio Synthesis & Twitch IRC",
-      "category": "realtime-ui",
-      "featured": false,
-      "badge": "60 FPS WebGL/Canvas",
-      "version": "v1.1.0",
-      "language": "HTML5 / WebAudio",
-      "stars": 0,
-      "pushedAt": "2026-10-22T02:44:53Z",
-      "repoUrl": "https://github.com/critmaths/criticalmaths-stream-suite",
-      "liveUrl": "https://github.com/critmaths/criticalmaths-stream-suite",
-      "downloadUrl": "https://github.com/critmaths/criticalmaths-stream-suite/releases/tag/v1.1.0",
-      "summary": "Hardware-accelerated broadcast overlay suite and control center for OBS Studio & Streamlabs featuring zero-config Twitch IRC WebSockets and procedural Web Audio API sound synthesis.",
-      "highlights": [
-        "Zero-dependency procedural sci-fi audio cues synthesized in real time via the browser's native Web Audio API (AudioContext)",
-        "Direct Twitch IRC WebSocket client rendering live chat, subscriber badges, and alert triggers without OAuth token complexity",
-        "Interactive Master Control Dashboard with live 1080p viewport scaling, theme matrix switching, and 1-click alert simulation"
-      ],
-      "stack": ["HTML5 Canvas", "Web Audio API", "Twitch IRC WebSocket", "CSS3 3D Transforms", "OBS Browser Source"],
-      "blueprint": "[Twitch IRC WebSocket] --> [Real-Time Chat & Badge Parser]\n                                  |\n[Master Studio HUD]   --> [60 FPS Canvas Particle & CSS3 Compositor] --> [Web Audio Synthesizer]"
-    }
-  ]
+    "generatedAt":  "2026-11-09T23:18:59Z",
+    "profile":  {
+                    "name":  "Scott Forest",
+                    "handle":  "critmaths",
+                    "organization":  "Critical Softworks / Intelligent Productions",
+                    "role":  "Systems, Cybersecurity \u0026 Full-Stack Software Engineer",
+                    "location":  "North Texas (Open to Remote \u0026 Hybrid)",
+                    "email":  "critmaths@gmail.com",
+                    "githubUrl":  "https://github.com/critmaths",
+                    "portfolioUrl":  "https://critmaths.github.io",
+                    "websiteUrl":  "https://criticalmaths.synergize.co"
+                },
+    "flagship":  [
+                     {
+                         "repo":  "omav-releases",
+                         "title":  "OmAV Security Suite",
+                         "subtitle":  "Precision Windows Antivirus, 6-Layer Active Defense \u0026 Multi-Peer WireGuard VPN",
+                         "category":  "rust-security",
+                         "featured":  true,
+                         "badge":  "Flagship Endpoint Security",
+                         "version":  "v0.9.0-beta",
+                         "language":  "Rust \u0026 Flutter",
+                         "stars":  1,
+                         "pushedAt":  "2026-11-09T19:37:20Z",
+                         "repoUrl":  "https://github.com/critmaths/omav-releases",
+                         "liveUrl":  "https://omavsecurity.wordpress.com/",
+                         "downloadUrl":  "https://github.com/critmaths/omav-releases/releases",
+                         "summary":  "Next-generation Windows endpoint protection combining multi-threaded Rust (Rayon) heuristic scanning, in-memory script de-obfuscation, YARA + AMSI behavioral hooks, decoy honeypot canary traps, and zero-log ChaCha20-Poly1305 WireGuard tunneling.",
+                         "highlights":  [
+                                            "Multi-threaded Rust 2021 core engine utilizing Rayon work-stealing parallelism for sub-second heuristic \u0026 SHA-256 signature sweeps",
+                                            "6-Layer Active Defense Matrix integrating YARA rule evaluation, Windows AMSI script inspection, and ransomware canary honeypots",
+                                            "Built-in multi-peer WireGuard VPN shield with ChaCha20-Poly1305 encryption and responsive Flutter 3.24 desktop telemetry UI"
+                                        ],
+                         "stack":  [
+                                       "Rust 2021",
+                                       "Rayon",
+                                       "Flutter 3.24",
+                                       "YARA + AMSI",
+                                       "WireGuard",
+                                       "ChaCha20-Poly1305",
+                                       "Win32 API"
+                                   ],
+                         "blueprint":  "[File / Process / Script Event]\n       |\n       +--\u003e Layer 1-2: Rust Rayon Parallel Scanner (SHA-256 + Entropy Heuristics)\n       +--\u003e Layer 3-4: YARA Pattern Engine + Windows AMSI In-Memory De-obfuscation\n       +--\u003e Layer 5:   Ransomware Canary Vault Traps (.omav_canary I/O Tripwire)\n       +--\u003e Layer 6:   Multi-Peer WireGuard Tunnel (ChaCha20-Poly1305 Zero-Log Shield)"
+                     },
+                     {
+                         "repo":  "neighbornet",
+                         "title":  "NeighborNet - Sovereign Mesh Platform",
+                         "subtitle":  "Decentralized, Off-Grid Community Mesh Network on the Reticulum Stack",
+                         "category":  "distributed-mesh",
+                         "featured":  true,
+                         "badge":  "12 * Open-Source Mesh",
+                         "version":  "v1.0.0",
+                         "language":  "Rust \u0026 Dart",
+                         "stars":  12,
+                         "pushedAt":  "2026-10-26T11:45:04Z",
+                         "repoUrl":  "https://github.com/critmaths/neighbornet",
+                         "liveUrl":  "https://criticalmaths.synergize.co",
+                         "downloadUrl":  "https://github.com/critmaths/neighbornet/releases/tag/v1.0.0",
+                         "summary":  "Local-first, partition-tolerant community communications network operating without internet or central servers. Built with a native Rust cryptographic Reticulum core and a cross-platform Flutter UI.",
+                         "highlights":  [
+                                            "Asymmetric hierarchical topology separating always-on Raspberry Pi/PC transport relays from battery-constrained mobile leaf nodes",
+                                            "Reticulum Network Stack (RNS) cryptographic substrate with Ed25519 node identities, X25519 link encryption, and 128-bit destination hashes",
+                                            "Conflict-free store-and-forward replication powered by a cryptographically signed Directed Acyclic Graph (DAG)"
+                                        ],
+                         "stack":  [
+                                       "Rust",
+                                       "Reticulum (RNS)",
+                                       "Ed25519 / X25519",
+                                       "Signed DAG",
+                                       "Flutter / Dart",
+                                       "P2P Mesh",
+                                       "Raspberry Pi"
+                                   ],
+                         "blueprint":  "       [ISP / Municipal Backbone (Optional)]\n                        |\n          +-------------+-------------+\n   [Community Pi Relay]       [Community Pi Relay]  (Always-On Transport \u0026 DAG Store)\n       /          \\               /          \\\n  [Desktop]    [Mobile]      [Desktop]    [Mobile]  (Ed25519 Signed Leaf Nodes)"
+                     },
+                     {
+                         "repo":  "crit-mail-client-releases",
+                         "title":  "CritMail // SIGINT Terminal",
+                         "subtitle":  "Zero-JS Sandboxed, AES-256-GCM Encrypted Cross-Platform Email Client",
+                         "category":  "rust-security",
+                         "featured":  true,
+                         "badge":  "Cross-Platform Security",
+                         "version":  "v1.0.0",
+                         "language":  "Native Desktop",
+                         "stars":  0,
+                         "pushedAt":  "2026-10-17T21:13:04Z",
+                         "repoUrl":  "https://github.com/critmaths/crit-mail-client-releases",
+                         "liveUrl":  "https://github.com/critmaths/crit-mail-client-releases/releases/latest",
+                         "downloadUrl":  "https://github.com/critmaths/crit-mail-client-releases/releases/tag/v1.0.0",
+                         "summary":  "Ultra-fast, hack-proof email client for Windows, macOS, and Linux inspired by Winamp 3 monospace ergonomics and SIGINT command terminals. Hardware-backed credential storage and strict zero-JS message sandboxing.",
+                         "highlights":  [
+                                            "Hardware-bound credential protection combining OS DPAPI / keychain integration with local AES-256-GCM classified payload encryption",
+                                            "Strict zero-JS HTML sanitizer and tracking-pixel firewall eliminating remote beacon exfiltration across IMAP4 (993), POP3 (995), and SMTP (465)",
+                                            "Deterministic zero-rounded-corner monospace HUD engineered for rapid keyboard-first triage"
+                                        ],
+                         "stack":  [
+                                       "AES-256-GCM",
+                                       "Windows DPAPI",
+                                       "IMAP4 / SMTP / POP3",
+                                       "Zero-JS Sandbox",
+                                       "Windows / macOS / Linux"
+                                   ],
+                         "blueprint":  "[Incoming TLS Stream: IMAP4:993 / POP3:995]\n       |\n       +--\u003e Zero-JS DOM Sanitizer \u0026 Remote Pixel Firewall\n       +--\u003e Local Vault Storage (AES-256-GCM + OS DPAPI Hardware Key)\n       +--\u003e Monospace SIGINT Terminal Renderer (Zero External Network Calls)"
+                     },
+                     {
+                         "repo":  "WPSpamArmor",
+                         "title":  "CyberArmor (WPSpamArmor)",
+                         "subtitle":  "Zero-Cloud Layer-7 WAF, Browser Proof-of-Work \u0026 Honeypot Suite for WordPress",
+                         "category":  "web-security",
+                         "featured":  true,
+                         "badge":  "100% Local Privacy-First",
+                         "version":  "v1.0.0",
+                         "language":  "PHP \u0026 JS",
+                         "stars":  1,
+                         "pushedAt":  "2026-10-26T11:45:16Z",
+                         "repoUrl":  "https://github.com/critmaths/WPSpamArmor",
+                         "liveUrl":  "https://criticalmaths.synergize.co",
+                         "downloadUrl":  "https://github.com/critmaths/WPSpamArmor/releases/tag/v1.0.0",
+                         "summary":  "Enterprise-grade open-source security, firewall, and anti-spam suite for WordPress that eliminates CAPTCHAs and third-party cloud dependencies through client-side micro Proof-of-Work and HMAC time-gates.",
+                         "highlights":  [
+                                            "Client-side micro Proof-of-Work (PoW) challenge + HMAC-signed velocity time-gate (\u003c3s bot rejection) with zero user friction",
+                                            "Dynamic salted obfuscated honeypots and cache-proof REST token hydration compatible with aggressive full-page CDN caching",
+                                            "Lightweight Layer-7 WAF blocking SQLi, path traversal, and automated credential stuffing with 100% local GDPR compliance"
+                                        ],
+                         "stack":  [
+                                       "PHP 7.4+",
+                                       "WebCrypto PoW",
+                                       "HMAC-SHA256",
+                                       "Layer-7 WAF",
+                                       "WordPress REST API",
+                                       "Zero-Cloud GDPR"
+                                   ],
+                         "blueprint":  "[Client Submission] --\u003e [Cache-Proof REST Token Hydration]\n                              |\n                              +--\u003e 1. Browser Micro Proof-of-Work Verification\n                              +--\u003e 2. HMAC-Signed Velocity Time-Gate (\u003c3s Reject)\n                              +--\u003e 3. Dynamic Salted Honeypot + Layer-7 WAF Inspection"
+                     },
+                     {
+                         "repo":  "wp-headless-hub",
+                         "title":  "WP Headless Preview \u0026 Live Sync Hub",
+                         "subtitle":  "Cryptographic Draft Previews \u0026 Instant ISR Cache Revalidation for Next.js \u0026 Astro",
+                         "category":  "web-security",
+                         "featured":  false,
+                         "badge":  "Headless Architecture",
+                         "version":  "v1.0.0",
+                         "language":  "PHP \u0026 TypeScript",
+                         "stars":  0,
+                         "pushedAt":  "2026-10-12T14:21:04Z",
+                         "repoUrl":  "https://github.com/critmaths/wp-headless-hub",
+                         "liveUrl":  "https://github.com/critmaths/wp-headless-hub",
+                         "downloadUrl":  "https://github.com/critmaths/wp-headless-hub",
+                         "summary":  "Solves broken draft previews and stale CDN caches in decoupled WordPress architectures using short-lived SHA-256 HMAC tokens and asynchronous webhook revalidation.",
+                         "highlights":  [
+                                            "Generates 300-second TTL preview tokens signed with SHA-256 HMAC over post_id:user_id:expires",
+                                            "Constant-time signature verification (timingSafeEqual) on Next.js App Router and Astro endpoints to prevent timing side-channel attacks",
+                                            "Event-driven webhook dispatcher triggering instant on-demand ISR cache purging upon post publication or slug mutation"
+                                        ],
+                         "stack":  [
+                                       "PHP",
+                                       "Next.js",
+                                       "Astro",
+                                       "HMAC-SHA256",
+                                       "timingSafeEqual",
+                                       "On-Demand ISR",
+                                       "Webhooks"
+                                   ],
+                         "blueprint":  "[WP Gutenberg Editor] --\u003e HMAC-SHA256(post_id:user_id:expires, secret)\n                                 | (TTL: 300s)\n                                 v\n[Next.js / Astro API] --\u003e timingSafeEqual() --\u003e Enable Draft Mode Cookie"
+                     },
+                     {
+                         "repo":  "criticalmaths-stream-suite",
+                         "title":  "Neo-Tech 60 FPS Broadcast Suite",
+                         "subtitle":  "GPU-Accelerated OBS Overlay Studio with Web Audio Synthesis \u0026 Twitch IRC",
+                         "category":  "realtime-ui",
+                         "featured":  false,
+                         "badge":  "60 FPS WebGL/Canvas",
+                         "version":  "v1.1.0",
+                         "language":  "HTML5 / WebAudio",
+                         "stars":  0,
+                         "pushedAt":  "2026-10-22T02:44:53Z",
+                         "repoUrl":  "https://github.com/critmaths/criticalmaths-stream-suite",
+                         "liveUrl":  "https://github.com/critmaths/criticalmaths-stream-suite",
+                         "downloadUrl":  "https://github.com/critmaths/criticalmaths-stream-suite/releases/tag/v1.1.0",
+                         "summary":  "Hardware-accelerated broadcast overlay suite and control center for OBS Studio \u0026 Streamlabs featuring zero-config Twitch IRC WebSockets and procedural Web Audio API sound synthesis.",
+                         "highlights":  [
+                                            "Zero-dependency procedural sci-fi audio cues synthesized in real time via the browser\u0027s native Web Audio API (AudioContext)",
+                                            "Direct Twitch IRC WebSocket client rendering live chat, subscriber badges, and alert triggers without OAuth token complexity",
+                                            "Interactive Master Control Dashboard with live 1080p viewport scaling, theme matrix switching, and 1-click alert simulation"
+                                        ],
+                         "stack":  [
+                                       "HTML5 Canvas",
+                                       "Web Audio API",
+                                       "Twitch IRC WebSocket",
+                                       "CSS3 3D Transforms",
+                                       "OBS Browser Source"
+                                   ],
+                         "blueprint":  "[Twitch IRC WebSocket] --\u003e [Real-Time Chat \u0026 Badge Parser]\n                                  |\n[Master Studio HUD]   --\u003e [60 FPS Canvas Particle \u0026 CSS3 Compositor] --\u003e [Web Audio Synthesizer]"
+                     }
+                 ]
 }
