@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scott Forest (@critmaths) — Systems, Cybersecurity & Full-Stack Software Engineer</title>
+  <meta name="description" content="Portfolio of Scott Forest (@critmaths) — Systems, Cybersecurity & Full-Stack Software Engineer building native Rust security suites, Reticulum cryptographic mesh networks, cross-platform Flutter apps, and zero-cloud web security systems." />
+  <meta property="og:title" content="Scott Forest (@critmaths) — Systems, Cybersecurity & Full-Stack Engineer" />
+  <meta property="og:description" content="Creator of OmAV Security Suite (Rust + YARA/AMSI + WireGuard), NeighborNet Sovereign Mesh (Rust Reticulum + Flutter), CritMail SIGINT Client, and CyberArmor WAF." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://critmaths.github.io/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #070a10;
+      --bg-surface: #0d121d;
+      --bg-elevated: #131b2c;
+      --bg-glass: rgba(13, 18, 29, 0.82);
+      --border-subtle: rgba(148, 163, 184, 0.14);
+      --border-highlight: rgba(56, 189, 248, 0.42);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-cyan: #38bdf8;
+      --accent-cyan-glow: rgba(56, 189, 248, 0.16);
+      --accent-emerald: #10b981;
+      --accent-emerald-glow: rgba(16, 185, 129, 0.16);
+      --accent-indigo: #818cf8;
+      --accent-amber: #f59e0b;
+      --shadow-card: 0 20px 45px -15px rgba(0, 0, 0, 0.65);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-elevated: #f1f5f9;
+      --bg-glass: rgba(255, 255, 255, 0.88);
+      --border-subtle: rgba(15, 23, 42, 0.12);
+      --border-highlight: rgba(2, 132, 199, 0.45);
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-cyan: #0284c7;
+      --accent-cyan-glow: rgba(2, 132, 199, 0.12);
+      --accent-emerald: #059669;
+      --accent-emerald-glow: rgba(5, 150, 105, 0.12);
+      --accent-indigo: #4f46e5;
+      --accent-amber: #d97706;
+      --shadow-card: 0 14px 32px -12px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(circle at 12% 8%, var(--accent-cyan-glow), transparent 36%),
+        radial-gradient(circle at 88% 14%, var(--accent-emerald-glow), transparent 34%);
+      background-attachment: fixed;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Sticky Top Navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: var(--bg-glass);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1.5px solid var(--accent-cyan);
+      object-fit: cover;
+    }
+
+    .brand-handle {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent-cyan);
+      background: var(--accent-cyan-glow);
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      border-radius: 9px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      border: 1px solid transparent;
+      font-family: var(--font-sans);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+      color: #ffffff;
+      box-shadow: 0 6px 20px -4px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    .btn-outline {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      border-color: var(--border-subtle);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+
+    .kbd-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.12rem 0.4rem;
+      border-radius: 4px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4.5rem 0 3.25rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .status-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.38rem 0.9rem;
+      border-radius: 999px;
+      background: var(--accent-emerald-glow);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: var(--accent-emerald);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 1.35rem;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.25rem, 4.2vw, 3.55rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.2rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-emerald) 52%, var(--accent-indigo) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+      font-size: 1.12rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin-bottom: 1.85rem;
+    }
+
+    .hero-lead strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .metrics-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-value {
+      font-family: var(--font-mono);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .metric-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.15rem;
+    }
+
+    /* Right Hero Terminal Card */
+    .telemetry-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .telemetry-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1.15rem;
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .window-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #ef4444; }
+    .dot-amber { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+
+    .telemetry-body {
+      padding: 1.35rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .code-line {
+      margin-bottom: 0.4rem;
+    }
+
+    .c-prompt { color: var(--accent-emerald); font-weight: 700; }
+    .c-key { color: var(--accent-cyan); }
+    .c-val { color: var(--accent-amber); }
+    .c-comment { color: var(--text-muted); }
+
+    /* Section Styling */
+    section {
+      padding: 3.75rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1.25rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.65rem, 2.8vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      max-width: 650px;
+      margin-top: 0.35rem;
+    }
+
+    /* Filter Tabs */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      padding: 0.48rem 0.95rem;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent-cyan-glow);
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+    }
+
+    /* Flagship Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(540px, 1fr));
+      gap: 1.65rem;
+    }
+
+    .project-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-highlight);
+    }
+
+    .project-card.featured::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-emerald), var(--accent-indigo));
+    }
+
+    .project-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .project-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: center;
+    }
+
+    .badge {
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      font-weight: 600;
+      padding: 0.2rem 0.58rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+    }
+
+    .badge-cyan {
+      background: var(--accent-cyan-glow);
+      color: var(--accent-cyan);
+      border-color: rgba(56, 189, 248, 0.32);
+    }
+
+    .badge-emerald {
+      background: var(--accent-emerald-glow);
+      color: var(--accent-emerald);
+      border-color: rgba(16, 185, 129, 0.32);
+    }
+
+    .project-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-subtitle {
+      font-size: 0.92rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      margin-bottom: 0.95rem;
+    }
+
+    .project-summary {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.1rem;
+    }
+
+    .project-highlights {
+      list-style: none;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-highlights li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.45rem;
+    }
+
+    .project-highlights li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent-emerald);
+      font-weight: bold;
+    }
+
+    .blueprint-box {
+      display: none;
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      line-height: 1.55;
+      color: var(--accent-cyan);
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .blueprint-box.visible {
+      display: block;
+    }
+
+    .stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .stack-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 5px;
+      background: var(--bg-elevated);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .project-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .btn-sm {
+      padding: 0.4rem 0.78rem;
+      font-size: 0.8rem;
+      border-radius: 7px;
+    }
+
+    .updated-stamp {
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      color: var(--text-muted);
+    }
+
+    /* Engineering Discipline Matrix */
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .matrix-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+
+    .matrix-card h3 {
+      font-size: 1.08rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .matrix-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    /* Live GitHub Telemetry & Automation Feed */
+    .live-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.5rem;
+    }
+
+    .feed-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .feed-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .feed-item:last-child {
+      border-bottom: none;
+    }
+
+    .feed-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .feed-meta {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* Command Palette Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.78);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .cmd-modal {
+      width: 100%;
+      max-width: 640px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-highlight);
+      border-radius: 14px;
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .cmd-input-wrap {
+      display: flex;
+      align-items: center;
+      padding: 0.95rem 1.2rem;
+      border-bottom: 1px solid var(--border-subtle);
+      gap: 0.75rem;
+    }
+
+    .cmd-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+    }
+
+    .cmd-list {
+      max-height: 340px;
+      overflow-y: auto;
+      padding: 0.5rem;
+    }
+
+    .cmd-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .cmd-option:hover {
+      background: var(--accent-cyan-glow);
+      color: var(--accent-cyan);
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 2rem;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .live-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .metrics-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* Executive Print-to-PDF Resume Mode */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt;
+      }
+      .navbar, .filter-bar, .modal-backdrop, .btn-blueprint-toggle, #live-pulse-section {
+        display: none !important;
+      }
+      .project-card, .matrix-card, .telemetry-card {
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
+        break-inside: avoid;
+        margin-bottom: 12px;
+      }
+      .hero {
+        padding: 1rem 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <img src="https://avatars.githubusercontent.com/u/282396993?v=4" alt="Scott Forest" class="brand-avatar" />
+        <span>Scott Forest</span>
+        <span class="brand-handle">@critmaths</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#flagship-projects">Flagship Systems</a>
+        <a href="#architecture-matrix">Core Competencies</a>
+        <a href="#live-pulse-section">Live GitHub Telemetry</a>
+        <a href="#contact-section">Hire / Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-outline btn-sm" id="openCmdBtn" title="Open Command Palette (Ctrl+K)">
+          <span>⌘ Command</span>
+          <span class="kbd-pill">Ctrl+K</span>
+        </button>
+        <button class="btn btn-outline btn-sm" id="themeToggleBtn" title="Toggle Dark/Light Mode">
+          <span id="themeIcon">☀️ Light</span>
+        </button>
+        <button class="btn btn-primary btn-sm" onclick="window.print()" title="Print or Save Executive Portfolio Summary as PDF">
+          📄 Resume / Print PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="status-banner">
+            <span class="pulse-dot"></span>
+            <span>Available for Systems, Security &amp; Full-Stack Engineering Roles • North Texas &amp; Remote</span>
+          </div>
+          <h1>
+            Engineering <span class="gradient-text">High-Assurance Systems</span>, Native Security &amp; Resilient Software.
+          </h1>
+          <p class="hero-lead">
+            I’m <strong>Scott Forest (@critmaths)</strong>, founder of <strong>Critical Softworks</strong>. I architect and ship production software spanning <strong>multi-threaded Rust endpoint security</strong>, <strong>cryptographic Reticulum mesh networks</strong>, <strong>zero-JS encrypted desktop clients</strong>, and <strong>zero-cloud web defense systems</strong>.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#flagship-projects" class="btn btn-primary">
+              ⚡ Explore Flagship Systems
+            </a>
+            <a href="https://github.com/critmaths" target="_blank" rel="noopener" class="btn btn-outline">
+              🐙 GitHub Profile (@critmaths)
+            </a>
+            <a href="mailto:critmaths@gmail.com?subject=Engineering%20Opportunity%20for%20Scott%20Forest" class="btn btn-outline">
+              ✉️ critmaths@gmail.com
+            </a>
+          </div>
+
+          <div class="metrics-bar">
+            <div class="metric-item">
+              <span class="metric-value" id="metricRepos">6+</span>
+              <span class="metric-label">Production Systems</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value" id="metricStars">14+</span>
+              <span class="metric-label">GitHub Stars Earned</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value">Rust + Flutter</span>
+              <span class="metric-label">Primary Native Stack</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value" id="metricSyncStatus">LIVE</span>
+              <span class="metric-label">Auto-Synced Telemetry</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Executive Engineering Profile Terminal -->
+        <aside class="telemetry-card" aria-label="System Architecture Profile">
+          <div class="telemetry-header">
+            <div class="window-dots">
+              <span class="dot-red"></span>
+              <span class="dot-amber"></span>
+              <span class="dot-green"></span>
+            </div>
+            <span>scott-forest@critical-softworks:~</span>
+            <span id="liveClock">UTC</span>
+          </div>
+          <div class="telemetry-body">
+            <div class="code-line"><span class="c-prompt">$</span> whoami --verbose</div>
+            <div class="code-line"><span class="c-key">engineer:</span> <span class="c-val">"Scott Forest (@critmaths)"</span></div>
+            <div class="code-line"><span class="c-key">base:</span> <span class="c-val">"North Texas • Remote Ready"</span></div>
+            <div class="code-line"><span class="c-key">specialties:</span> [</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="c-val">"Native Rust Systems &amp; Rayon Concurrency"</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="c-val">"Endpoint Security (YARA, AMSI, WireGuard)"</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="c-val">"Cryptographic Mesh Networking (Ed25519/X25519)"</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="c-val">"Cross-Platform Desktop &amp; Mobile (Flutter/Dart)"</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="c-val">"Full-Stack Web Security (WAF, PoW, Next.js, PHP)"</span></div>
+            <div class="code-line">]</div>
+            <div class="code-line" style="margin-top:0.65rem;"><span class="c-prompt">$</span> gh repo status --auto-sync</div>
+            <div class="code-line"><span class="c-comment"># Connected to api.github.com/users/critmaths</span></div>
+            <div class="code-line" id="terminalSyncLine"><span style="color:var(--accent-emerald);">✓ Real-time GitHub repository &amp; release sync active</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Flagship Engineering Case Studies -->
+    <section id="flagship-projects">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">// Production Case Studies &amp; Open-Source Releases</div>
+          <h2 class="section-title">Flagship Systems &amp; Architecture</h2>
+          <p class="section-subtitle">
+            Every system below is shipped with real binary releases, cryptographic verification, or live deployment—automatically synchronized with my GitHub repositories.
+          </p>
+        </div>
+        <button class="btn btn-outline btn-sm" id="refreshGithubBtn" title="Fetch latest repository updates from GitHub API">
+          🔄 Sync Live GitHub Data
+        </button>
+      </div>
+
+      <div class="filter-bar" role="tablist">
+        <button class="filter-btn active" data-filter="all">All Systems</button>
+        <button class="filter-btn" data-filter="rust-security">🛡️ Rust &amp; Endpoint Security</button>
+        <button class="filter-btn" data-filter="distributed-mesh">📡 Decentralized Mesh &amp; P2P</button>
+        <button class="filter-btn" data-filter="web-security">🔒 Full-Stack &amp; Web Security</button>
+        <button class="filter-btn" data-filter="realtime-ui">⚡ Real-Time Audio/Graphics</button>
+      </div>
+
+      <div class="projects-grid" id="projectsContainer">
+        <!-- Populated dynamically from projects.json + Live GitHub API -->
+      </div>
+    </section>
+
+    <!-- Engineering Discipline Matrix -->
+    <section id="architecture-matrix">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">// Why Employers &amp; Engineering Teams Hire Me</div>
+          <h2 class="section-title">Full-Spectrum Engineering Capabilities</h2>
+          <p class="section-subtitle">
+            Bridging low-level systems performance, applied cryptography, and polished cross-platform user interfaces.
+          </p>
+        </div>
+      </div>
+
+      <div class="matrix-grid">
+        <div class="matrix-card">
+          <h3>🦀 Native Rust &amp; Concurrency</h3>
+          <p>
+            Designing memory-safe, multi-threaded engines with Rayon work-stealing concurrency, deterministic I/O pipelines, and native OS integration.
+          </p>
+          <div class="stack-row">
+            <span class="stack-pill">Rust 2021</span>
+            <span class="stack-pill">Rayon</span>
+            <span class="stack-pill">Tokio / Async</span>
+            <span class="stack-pill">Win32 / OS APIs</span>
+            <span class="stack-pill">FFI Bridges</span>
+          </div>
+        </div>
+
+        <div class="matrix-card">
+          <h3>🛡️ Applied Security &amp; Cryptography</h3>
+          <p>
+            Implementing defense-in-depth architectures: YARA &amp; AMSI inspection, ransomware canary tripwires, WireGuard tunnels, and zero-trust token validation.
+          </p>
+          <div class="stack-row">
+            <span class="stack-pill">Ed25519 / X25519</span>
+            <span class="stack-pill">AES-256-GCM</span>
+            <span class="stack-pill">ChaCha20-Poly1305</span>
+            <span class="stack-pill">HMAC-SHA256</span>
+            <span class="stack-pill">YARA + AMSI</span>
+          </div>
+        </div>
+
+        <div class="matrix-card">
+          <h3>📡 Distributed &amp; Offline-First Systems</h3>
+          <p>
+            Building partition-tolerant mesh networks on the Reticulum stack with signed Directed Acyclic Graph (DAG) store-and-forward replication.
+          </p>
+          <div class="stack-row">
+            <span class="stack-pill">Reticulum (RNS)</span>
+            <span class="stack-pill">Signed DAG Sync</span>
+            <span class="stack-pill">WebSockets / IRC</span>
+            <span class="stack-pill">IMAP4 / SMTP</span>
+          </div>
+        </div>
+
+        <div class="matrix-card">
+          <h3>💻 Cross-Platform &amp; Full-Stack Delivery</h3>
+          <p>
+            Delivering responsive 60 FPS desktop/mobile interfaces in Flutter and hardened full-stack web applications in Next.js, Astro, TypeScript, and PHP.
+          </p>
+          <div class="stack-row">
+            <span class="stack-pill">Flutter 3.24 / Dart</span>
+            <span class="stack-pill">TypeScript / JS</span>
+            <span class="stack-pill">Next.js &amp; Astro</span>
+            <span class="stack-pill">PHP / WordPress WAF</span>
+            <span class="stack-pill">Python</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live GitHub Telemetry & Automated Pipeline Section -->
+    <section id="live-pulse-section">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">// Continuous Deployment &amp; Automated Sync</div>
+          <h2 class="section-title">Live Engineering Pulse</h2>
+          <p class="section-subtitle">
+            This portfolio is wired directly to GitHub’s REST API and an automated sync pipeline—whenever a new project is started or a release is pushed, it appears here automatically.
+          </p>
+        </div>
+      </div>
+
+      <div class="live-grid">
+        <div class="feed-panel">
+          <h3 style="margin-bottom: 1rem; font-size: 1.05rem;">⚡ Recent Repository Activity &amp; Releases</h3>
+          <div id="liveEventsFeed">
+            <div class="feed-item">
+              <div>
+                <div class="feed-title">Connecting to GitHub Live Telemetry (@critmaths)...</div>
+                <div class="feed-meta">Fetching latest pushes, releases, and newly created repositories</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feed-panel">
+          <h3 style="margin-bottom: 1rem; font-size: 1.05rem;">🤖 3-Layer Portfolio Automation Architecture</h3>
+          <div class="feed-item">
+            <div>
+              <div class="feed-title">1. Real-Time Browser API Hydration</div>
+              <div class="feed-meta">Queries <code>api.github.com/users/critmaths/repos</code> on every visit to surface new repos, stars, and latest pushes immediately.</div>
+            </div>
+            <span class="badge badge-emerald">Active</span>
+          </div>
+          <div class="feed-item">
+            <div>
+              <div class="feed-title">2. GitHub Actions Scheduled Snapshot</div>
+              <div class="feed-meta"><code>.github/workflows/sync-portfolio.yml</code> runs automatically to update <code>projects.json</code> with new releases and repositories.</div>
+            </div>
+            <span class="badge badge-cyan">6h Cron</span>
+          </div>
+          <div class="feed-item">
+            <div>
+              <div class="feed-title">3. Antigravity Agent Automation</div>
+              <div class="feed-meta">Scheduled background agent scans local &amp; GitHub updates to author rich architectural case studies automatically.</div>
+            </div>
+            <span class="badge badge-cyan">Linked</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Hire Section -->
+    <section id="contact-section">
+      <div class="telemetry-card" style="padding: 2.5rem; text-align: center;">
+        <div class="section-eyebrow">// Ready to Make an Immediate Impact</div>
+        <h2 class="section-title" style="margin-bottom: 0.75rem;">Let’s Build Something Extraordinary</h2>
+        <p class="section-subtitle" style="margin: 0 auto 1.75rem;">
+          Whether you need a systems engineer for native Rust/security infrastructure, a full-stack problem solver, or a product-minded builder who ships complete applications from scratch—I’d love to talk.
+        </p>
+        <div class="hero-cta-row" style="justify-content: center; margin-bottom: 0;">
+          <a href="mailto:critmaths@gmail.com?subject=Hiring%20Inquiry%20—%20Scott%20Forest" class="btn btn-primary">
+            ✉️ Email Scott Forest (critmaths@gmail.com)
+          </a>
+          <a href="https://github.com/critmaths" target="_blank" rel="noopener" class="btn btn-outline">
+            🐙 View GitHub (@critmaths)
+          </a>
+          <a href="https://criticalmaths.synergize.co" target="_blank" rel="noopener" class="btn btn-outline">
+            🌐 Critical Softworks Portal
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive Command Palette Modal (Ctrl+K) -->
+  <div class="modal-backdrop" id="cmdModal">
+    <div class="cmd-modal" role="dialog" aria-modal="true" aria-label="Command Palette">
+      <div class="cmd-input-wrap">
+        <span style="color:var(--accent-cyan);font-family:var(--font-mono);font-weight:700;">&gt;</span>
+        <input type="text" class="cmd-input" id="cmdInput" placeholder="Type a command or search projects (e.g. 'omav', 'mesh', 'sync', 'resume', 'theme')..." autocomplete="off" />
+        <span class="kbd-pill" style="cursor:pointer;" id="closeCmdBtn">ESC</span>
+      </div>
+      <div class="cmd-list" id="cmdList"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center;">
+      <div>
+        <strong>Scott Forest (@critmaths)</strong> — Critical Softworks / Intelligent Productions • North Texas
+      </div>
+      <div style="font-family:var(--font-mono);font-size:0.78rem;">
+        Auto-Synced via GitHub REST API &amp; GitHub Actions • <span id="footerSyncTimestamp">Snapshot Ready</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Curated baseline snapshot (also stored in projects.json and enriched live via GitHub API)
+    const BASELINE_PROJECTS = [
+      {
+        repo: "omav-releases",
+        title: "OmAV Security Suite",
+        subtitle: "Precision Windows Antivirus, 6-Layer Active Defense & Multi-Peer WireGuard VPN",
+        category: "rust-security",
+        featured: true,
+        badge: "Flagship Endpoint Security",
+        version: "v0.9.0-beta",
+        language: "Rust & Flutter",
+        stars: 1,
+        pushedAt: "2026-11-09T19:37:20Z",
+        repoUrl: "https://github.com/critmaths/omav-releases",
+        liveUrl: "https://omavsecurity.wordpress.com/",
+        downloadUrl: "https://github.com/critmaths/omav-releases/releases",
+        summary: "Next-generation Windows endpoint protection combining multi-threaded Rust (Rayon) heuristic scanning, in-memory script de-obfuscation, YARA + AMSI behavioral hooks, decoy honeypot canary traps, and zero-log ChaCha20-Poly1305 WireGuard tunneling.",
+        highlights: [
+          "Multi-threaded Rust 2021 core engine utilizing Rayon work-stealing parallelism for sub-second heuristic & SHA-256 signature sweeps",
+          "6-Layer Active Defense Matrix integrating YARA rule evaluation, Windows AMSI script inspection, and ransomware canary honeypots",
+          "Built-in multi-peer WireGuard VPN shield with ChaCha20-Poly1305 encryption and responsive Flutter 3.24 desktop telemetry UI"
+        ],
+        stack: ["Rust 2021", "Rayon", "Flutter 3.24", "YARA + AMSI", "WireGuard", "ChaCha20-Poly1305", "Win32 API"],
+        blueprint: "[File / Process / Script Event]\n       │\n       ├─► Layer 1-2: Rust Rayon Parallel Scanner (SHA-256 + Entropy Heuristics)\n       ├─► Layer 3-4: YARA Pattern Engine + Windows AMSI In-Memory De-obfuscation\n       ├─► Layer 5:   Ransomware Canary Vault Traps (.omav_canary I/O Tripwire)\n       └─► Layer 6:   Multi-Peer WireGuard Tunnel (ChaCha20-Poly1305 Zero-Log Shield)"
+      },
+      {
+        repo: "neighbornet",
+        title: "NeighborNet — Sovereign Mesh Platform",
+        subtitle: "Decentralized, Off-Grid Community Mesh Network on the Reticulum Stack",
+        category: "distributed-mesh",
+        featured: true,
+        badge: "12 ★ Open-Source Mesh",
+        version: "v1.0.0",
+        language: "Rust & Dart",
+        stars: 12,
+        pushedAt: "2026-10-26T11:45:04Z",
+        repoUrl: "https://github.com/critmaths/neighbornet",
+        liveUrl: "https://criticalmaths.synergize.co",
+        downloadUrl: "https://github.com/critmaths/neighbornet/releases/tag/v1.0.0",
+        summary: "Local-first, partition-tolerant community communications network operating without internet or central servers. Built with a native Rust cryptographic Reticulum core and a cross-platform Flutter UI.",
+        highlights: [
+          "Asymmetric hierarchical topology separating always-on Raspberry Pi/PC transport relays from battery-constrained mobile leaf nodes",
+          "Reticulum Network Stack (RNS) cryptographic substrate with Ed25519 node identities, X25519 link encryption, and 128-bit destination hashes",
+          "Conflict-free store-and-forward replication powered by a cryptographically signed Directed Acyclic Graph (DAG)"
+        ],
+        stack: ["Rust", "Reticulum (RNS)", "Ed25519 / X25519", "Signed DAG", "Flutter / Dart", "P2P Mesh", "Raspberry Pi"],
+        blueprint: "       [ISP / Municipal Backbone (Optional)]\n                        │\n          ┌─────────────┴─────────────┐\n   [Community Pi Relay]       [Community Pi Relay]  (Always-On Transport & DAG Store)\n       /          \\               /          \\\n  [Desktop]    [Mobile]      [Desktop]    [Mobile]  (Ed25519 Signed Leaf Nodes)"
+      },
+      {
+        repo: "crit-mail-client-releases",
+        title: "CritMail // SIGINT Terminal",
+        subtitle: "Zero-JS Sandboxed, AES-256-GCM Encrypted Cross-Platform Email Client",
+        category: "rust-security",
+        featured: true,
+        badge: "Cross-Platform Security",
+        version: "v1.0.0",
+        language: "Native Desktop",
+        stars: 0,
+        pushedAt: "2026-10-17T21:13:04Z",
+        repoUrl: "https://github.com/critmaths/crit-mail-client-releases",
+        liveUrl: "https://github.com/critmaths/crit-mail-client-releases/releases/latest",
+        downloadUrl: "https://github.com/critmaths/crit-mail-client-releases/releases/tag/v1.0.0",
+        summary: "Ultra-fast, hack-proof email client for Windows, macOS, and Linux inspired by Winamp 3 monospace ergonomics and SIGINT command terminals. Hardware-backed credential storage and strict zero-JS message sandboxing.",
+        highlights: [
+          "Hardware-bound credential protection combining OS DPAPI / keychain integration with local AES-256-GCM classified payload encryption",
+          "Strict zero-JS HTML sanitizer and tracking-pixel firewall eliminating remote beacon exfiltration across IMAP4 (993), POP3 (995), and SMTP (465)",
+          "Deterministic zero-rounded-corner monospace HUD engineered for rapid keyboard-first triage"
+        ],
+        stack: ["AES-256-GCM", "Windows DPAPI", "IMAP4 / SMTP / POP3", "Zero-JS Sandbox", "Windows / macOS / Linux"],
+        blueprint: "[Incoming TLS Stream: IMAP4:993 / POP3:995]\n       │\n       ├─► Zero-JS DOM Sanitizer & Remote Pixel Firewall\n       ├─► Local Vault Storage (AES-256-GCM + OS DPAPI Hardware Key)\n       └─► Monospace SIGINT Terminal Renderer (Zero External Network Calls)"
+      },
+      {
+        repo: "WPSpamArmor",
+        title: "CyberArmor (WPSpamArmor)",
+        subtitle: "Zero-Cloud Layer-7 WAF, Browser Proof-of-Work & Honeypot Suite for WordPress",
+        category: "web-security",
+        featured: true,
+        badge: "100% Local Privacy-First",
+        version: "v1.0.0",
+        language: "PHP & JS",
+        stars: 1,
+        pushedAt: "2026-10-26T11:45:16Z",
+        repoUrl: "https://github.com/critmaths/WPSpamArmor",
+        liveUrl: "https://criticalmaths.synergize.co",
+        downloadUrl: "https://github.com/critmaths/WPSpamArmor/releases/tag/v1.0.0",
+        summary: "Enterprise-grade open-source security, firewall, and anti-spam suite for WordPress that eliminates CAPTCHAs and third-party cloud dependencies through client-side micro Proof-of-Work and HMAC time-gates.",
+        highlights: [
+          "Client-side micro Proof-of-Work (PoW) challenge + HMAC-signed velocity time-gate (<3s bot rejection) with zero user friction",
+          "Dynamic salted obfuscated honeypots and cache-proof REST token hydration compatible with aggressive full-page CDN caching",
+          "Lightweight Layer-7 WAF blocking SQLi, path traversal, and automated credential stuffing with 100% local GDPR compliance"
+        ],
+        stack: ["PHP 7.4+", "WebCrypto PoW", "HMAC-SHA256", "Layer-7 WAF", "WordPress REST API", "Zero-Cloud GDPR"],
+        blueprint: "[Client Submission] ──► [Cache-Proof REST Token Hydration]\n                              │\n                              ├─► 1. Browser Micro Proof-of-Work Verification\n                              ├─► 2. HMAC-Signed Velocity Time-Gate (<3s Reject)\n                              └─► 3. Dynamic Salted Honeypot + Layer-7 WAF Inspection"
+      },
+      {
+        repo: "wp-headless-hub",
+        title: "WP Headless Preview & Live Sync Hub",
+        subtitle: "Cryptographic Draft Previews & Instant ISR Cache Revalidation for Next.js & Astro",
+        category: "web-security",
+        featured: false,
+        badge: "Headless Architecture",
+        version: "v1.0.0",
+        language: "PHP & TypeScript",
+        stars: 0,
+        pushedAt: "2026-10-12T14:21:04Z",
+        repoUrl: "https://github.com/critmaths/wp-headless-hub",
+        liveUrl: "https://github.com/critmaths/wp-headless-hub",
+        downloadUrl: "https://github.com/critmaths/wp-headless-hub",
+        summary: "Solves broken draft previews and stale CDN caches in decoupled WordPress architectures using short-lived SHA-256 HMAC tokens and asynchronous webhook revalidation.",
+        highlights: [
+          "Generates 300-second TTL preview tokens signed with SHA-256 HMAC over post_id:user_id:expires",
+          "Constant-time signature verification (timingSafeEqual) on Next.js App Router and Astro endpoints to prevent timing side-channel attacks",
+          "Event-driven webhook dispatcher triggering instant on-demand ISR cache purging upon post publication or slug mutation"
+        ],
+        stack: ["PHP", "Next.js", "Astro", "HMAC-SHA256", "timingSafeEqual", "On-Demand ISR", "Webhooks"],
+        blueprint: "[WP Gutenberg Editor] ──► HMAC-SHA256(post_id:user_id:expires, secret)\n                                 │ (TTL: 300s)\n                                 ▼\n[Next.js / Astro API] ──► timingSafeEqual() ──► Enable Draft Mode Cookie"
+      },
+      {
+        repo: "criticalmaths-stream-suite",
+        title: "Neo-Tech 60 FPS Broadcast Suite",
+        subtitle: "GPU-Accelerated OBS Overlay Studio with Web Audio Synthesis & Twitch IRC",
+        category: "realtime-ui",
+        featured: false,
+        badge: "60 FPS WebGL/Canvas",
+        version: "v1.1.0",
+        language: "HTML5 / WebAudio",
+        stars: 0,
+        pushedAt: "2026-10-22T02:44:53Z",
+        repoUrl: "https://github.com/critmaths/criticalmaths-stream-suite",
+        liveUrl: "https://github.com/critmaths/criticalmaths-stream-suite",
+        downloadUrl: "https://github.com/critmaths/criticalmaths-stream-suite/releases/tag/v1.1.0",
+        summary: "Hardware-accelerated broadcast overlay suite and control center for OBS Studio & Streamlabs featuring zero-config Twitch IRC WebSockets and procedural Web Audio API sound synthesis.",
+        highlights: [
+          "Zero-dependency procedural sci-fi audio cues synthesized in real time via the browser's native Web Audio API (AudioContext)",
+          "Direct Twitch IRC WebSocket client rendering live chat, subscriber badges, and alert triggers without OAuth token complexity",
+          "Interactive Master Control Dashboard with live 1080p viewport scaling, theme matrix switching, and 1-click alert simulation"
+        ],
+        stack: ["HTML5 Canvas", "Web Audio API", "Twitch IRC WebSocket", "CSS3 3D Transforms", "OBS Browser Source"],
+        blueprint: "[Twitch IRC WebSocket] ──► [Real-Time Chat & Badge Parser]\n                                  │\n[Master Studio HUD]   ──► [60 FPS Canvas Particle & CSS3 Compositor] ──► [Web Audio Synthesizer]"
+      }
+    ];
+
+    let allProjects = [...BASELINE_PROJECTS];
+    let activeFilter = 'all';
+
+    function formatRelativeDate(isoStr) {
+      if (!isoStr) return 'Recently updated';
+      const date = new Date(isoStr);
+      const diffDays = Math.floor((Date.now() - date.getTime()) / (1000 * 60 * 60 * 24));
+      if (diffDays <= 0) return 'Updated today';
+      if (diffDays === 1) return 'Updated yesterday';
+      if (diffDays < 30) return `Updated ${diffDays}d ago`;
+      return `Updated ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function renderProjects() {
+      const container = document.getElementById('projectsContainer');
+      const filtered = activeFilter === 'all'
+        ? allProjects
+        : allProjects.filter(p => p.category === activeFilter);
+
+      container.innerHTML = filtered.map((p, idx) => `
+        <article class="project-card ${p.featured ? 'featured' : ''}" data-repo="${escapeHtml(p.repo)}">
+          <div>
+            <div class="project-top">
+              <div class="project-badges">
+                <span class="badge badge-cyan">${escapeHtml(p.badge || p.language)}</span>
+                <span class="badge">${escapeHtml(p.version || 'v1.0')}</span>
+                ${p.stars > 0 ? `<span class="badge badge-emerald">★ ${p.stars}</span>` : ''}
+              </div>
+              <span class="updated-stamp">${escapeHtml(formatRelativeDate(p.pushedAt))}</span>
+            </div>
+
+            <h3 class="project-title">${escapeHtml(p.title)}</h3>
+            <div class="project-subtitle">${escapeHtml(p.subtitle)}</div>
+            <p class="project-summary">${escapeHtml(p.summary)}</p>
+
+            <ul class="project-highlights">
+              ${(p.highlights || []).map(h => `<li>${escapeHtml(h)}</li>`).join('')}
+            </ul>
+
+            <pre class="blueprint-box" id="bp-${idx}">${escapeHtml(p.blueprint || '')}</pre>
+
+            <div class="stack-row">
+              ${(p.stack || []).map(s => `<span class="stack-pill">${escapeHtml(s)}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="${escapeHtml(p.repoUrl)}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                🐙 Source &amp; Releases
+              </a>
+              ${p.blueprint ? `
+                <button class="btn btn-outline btn-sm btn-blueprint-toggle" onclick="toggleBlueprint('bp-${idx}', this)">
+                  📐 Architecture Blueprint
+                </button>
+              ` : ''}
+              ${p.liveUrl && p.liveUrl !== p.repoUrl ? `
+                <a href="${escapeHtml(p.liveUrl)}" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                  🌐 Live Portal
+                </a>
+              ` : ''}
+            </div>
+            <span class="updated-stamp">${escapeHtml(p.language)}</span>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    window.toggleBlueprint = function(id, btn) {
+      const box = document.getElementById(id);
+      if (!box) return;
+      const isVisible = box.classList.toggle('visible');
+      btn.textContent = isVisible ? '🔼 Hide Blueprint' : '📐 Architecture Blueprint';
+    };
+
+    async function syncFromGitHub() {
+      const syncLine = document.getElementById('terminalSyncLine');
+      try {
+        // 1. Load projects.json if hosted alongside index.html
+        try {
+          const localRes = await fetch('./projects.json', { cache: 'no-store' });
+          if (localRes.ok) {
+            const localData = await localRes.json();
+            if (Array.isArray(localData.flagship) && localData.flagship.length) {
+              allProjects = localData.flagship;
+            }
+          }
+        } catch (_) {}
+
+        // 2. Live query GitHub REST API for critmaths repositories
+        const res = await fetch('https://api.github.com/users/critmaths/repos?sort=pushed&per_page=100');
+        if (!res.ok) throw new Error('GitHub API rate limit or offline');
+        const repos = await res.json();
+
+        const ignored = new Set(['critmaths.github.io', 'critmaths']);
+        const byName = new Map(allProjects.map(p => [p.repo.toLowerCase(), p]));
+        let totalStars = 0;
+
+        for (const r of repos) {
+          totalStars += (r.stargazers_count || 0);
+          if (r.private || r.fork || ignored.has(r.name)) continue;
+
+          const key = r.name.toLowerCase();
+          if (byName.has(key)) {
+            const existing = byName.get(key);
+            existing.stars = r.stargazers_count ?? existing.stars;
+            existing.pushedAt = r.pushed_at || existing.pushedAt;
+          } else {
+            // Automatically showcase any newly created public repository!
+            const newEntry = {
+              repo: r.name,
+              title: r.name.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+              subtitle: r.description || 'Active Open-Source Engineering Repository',
+              category: (r.language === 'Rust') ? 'rust-security' : 'web-security',
+              featured: false,
+              badge: 'Live Repository',
+              version: 'Active',
+              language: r.language || 'Software Engineering',
+              stars: r.stargazers_count || 0,
+              pushedAt: r.pushed_at,
+              repoUrl: r.html_url,
+              liveUrl: r.homepage || r.html_url,
+              downloadUrl: r.html_url,
+              summary: r.description || 'Newly published repository automatically discovered via GitHub Live Telemetry.',
+              highlights: [
+                `Automatically discovered from @critmaths GitHub (${r.name})`,
+                `Primary language: ${r.language || 'Multi-language'}`
+              ],
+              stack: r.topics && r.topics.length ? r.topics.slice(0, 6) : [r.language || 'Engineering'],
+              blueprint: `[GitHub: critmaths/${r.name}] ──► Live Portfolio Auto-Discovery`
+            };
+            allProjects.push(newEntry);
+            byName.set(key, newEntry);
+          }
+        }
+
+        // Sort featured first, then by most recently pushed
+        allProjects.sort((a, b) => {
+          if (Boolean(b.featured) !== Boolean(a.featured)) return b.featured ? 1 : -1;
+          return new Date(b.pushedAt || 0) - new Date(a.pushedAt || 0);
+        });
+
+        renderProjects();
+
+        document.getElementById('metricRepos').textContent = `${allProjects.length}+`;
+        document.getElementById('metricStars').textContent = `${Math.max(totalStars, 14)}+`;
+        document.getElementById('footerSyncTimestamp').textContent = `Live GitHub Sync: ${new Date().toLocaleTimeString()}`;
+        if (syncLine) {
+          syncLine.innerHTML = `<span style="color:var(--accent-emerald);">✓ Synced ${allProjects.length} active systems from GitHub API (${new Date().toLocaleTimeString()})</span>`;
+        }
+
+        // 3. Populate Live Activity Feed from recent repo pushes
+        const feedEl = document.getElementById('liveEventsFeed');
+        const topRecent = [...repos]
+          .filter(r => !r.private)
+          .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+          .slice(0, 5);
+
+        if (topRecent.length && feedEl) {
+          feedEl.innerHTML = topRecent.map(r => `
+            <div class="feed-item">
+              <div>
+                <a href="${escapeHtml(r.html_url)}" target="_blank" rel="noopener" class="feed-title">
+                  critmaths/${escapeHtml(r.name)}
+                </a>
+                <div class="feed-meta">${escapeHtml(r.description || 'Repository push & active development')}</div>
+              </div>
+              <span class="badge">${escapeHtml(formatRelativeDate(r.pushed_at))}</span>
+            </div>
+          `).join('');
+        }
+      } catch (err) {
+        renderProjects();
+      }
+    }
+
+    // Filter Buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        renderProjects();
+      });
+    });
+
+    // Theme Switcher
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    themeToggleBtn.addEventListener('click', () => {
+      const root = document.documentElement;
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      themeIcon.textContent = next === 'dark' ? '☀️ Light' : '🌙 Dark';
+    });
+
+    // Command Palette (Ctrl+K)
+    const cmdModal = document.getElementById('cmdModal');
+    const cmdInput = document.getElementById('cmdInput');
+    const cmdList = document.getElementById('cmdList');
+
+    const COMMANDS = [
+      { label: '🛡️ View OmAV Security Suite (Rust + YARA/AMSI + WireGuard)', action: () => window.open('https://github.com/critmaths/omav-releases', '_blank') },
+      { label: '📡 View NeighborNet Sovereign Mesh (Rust Reticulum + Flutter)', action: () => window.open('https://github.com/critmaths/neighbornet', '_blank') },
+      { label: '✉️ View CritMail SIGINT Encrypted Email Terminal', action: () => window.open('https://github.com/critmaths/crit-mail-client-releases', '_blank') },
+      { label: '🔒 View CyberArmor (WPSpamArmor Zero-Cloud WAF & PoW)', action: () => window.open('https://github.com/critmaths/WPSpamArmor', '_blank') },
+      { label: '🔄 Force Live GitHub Telemetry Re-Sync', action: () => syncFromGitHub() },
+      { label: '📄 Print / Save Executive Resume PDF', action: () => window.print() },
+      { label: '🎨 Toggle Dark / Light Portfolio Theme', action: () => themeToggleBtn.click() },
+      { label: '📬 Email Scott Forest (critmaths@gmail.com)', action: () => { window.location.href = 'mailto:critmaths@gmail.com'; } }
+    ];
+
+    function renderCommands(query = '') {
+      const q = query.trim().toLowerCase();
+      const matches = COMMANDS.filter(c => c.label.toLowerCase().includes(q));
+      cmdList.innerHTML = matches.map((c, i) => `
+        <div class="cmd-option" data-idx="${i}">
+          <span>${escapeHtml(c.label)}</span>
+          <span class="kbd-pill">Enter</span>
+        </div>
+      `).join('');
+      cmdList.querySelectorAll('.cmd-option').forEach((el, i) => {
+        el.addEventListener('click', () => {
+          cmdModal.classList.remove('open');
+          matches[i].action();
+        });
+      });
+    }
+
+    function openCommandPalette() {
+      cmdModal.classList.add('open');
+      cmdInput.value = '';
+      renderCommands('');
+      setTimeout(() => cmdInput.focus(), 40);
+    }
+
+    document.getElementById('openCmdBtn').addEventListener('click', openCommandPalette);
+    document.getElementById('closeCmdBtn').addEventListener('click', () => cmdModal.classList.remove('open'));
+    cmdModal.addEventListener('click', (e) => {
+      if (e.target === cmdModal) cmdModal.classList.remove('open');
+    });
+    cmdInput.addEventListener('input', (e) => renderCommands(e.target.value));
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        openCommandPalette();
+      } else if (e.key === 'Escape') {
+        cmdModal.classList.remove('open');
+      }
+    });
+
+    document.getElementById('refreshGithubBtn').addEventListener('click', syncFromGitHub);
+
+    // Live UTC Clock
+    setInterval(() => {
+      const el = document.getElementById('liveClock');
+      if (el) el.textContent = new Date().toISOString().slice(11, 19) + ' UTC';
+    }, 1000);
+
+    // Initial Render + Live GitHub Hydration
+    renderProjects();
+    syncFromGitHub();
+  </script>
+</body>
+</html>

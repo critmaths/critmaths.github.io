@@ -1,0 +1,45 @@
+name: Auto-Sync Portfolio & GitHub Projects
+
+on:
+  schedule:
+    # Runs automatically every 6 hours to capture new repos, releases, and commits
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+  repository_dispatch:
+    types: [project-updated]
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/sync-projects.mjs'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Portfolio Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch Latest GitHub Projects, Releases & Stars
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-projects.mjs
+
+      - name: Commit & Push Updated Telemetry Snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add projects.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore(sync): auto-update portfolio projects & release telemetry"
+            git push
+          else
+            echo "No changes to projects.json"
+          fi
