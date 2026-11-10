@@ -21,6 +21,9 @@ I architect and ship high-assurance software systems from low-level native Rust 
 - ✉️ **High-Security Desktop Applications**: Creator of **[CritMail // SIGINT Communications Terminal](https://github.com/critmaths/crit-mail-client-releases)** — a cross-platform (`Windows / macOS / Linux`) encrypted email client featuring `AES-256-GCM` payload security, OS DPAPI hardware vault integration, and a strict zero-JS sandbox.
 - 🔒 **Zero-Cloud Web Security & Headless Architecture**: Creator of **[CyberArmor (`WPSpamArmor`)](https://github.com/critmaths/WPSpamArmor)** (100% local Layer-7 WAF, client-side micro Proof-of-Work, and HMAC velocity gates) and **[WP Headless Hub](https://github.com/critmaths/wp-headless-hub)** (constant-time `HMAC-SHA256` draft previews & instant ISR cache revalidation for Next.js and Astro).
 
+> *When I'm not neck-deep in raw pointers, kernel traps, or firewall logic, I actually have quite a soft spot for clean front-end design, slick UI/UX, bespoke WordPress sorcery, and making pixels behave themselves.*  
+> <sub>♩ (Rumor has it I also compose music in secret: [soundcloud.com/rex-is-dead](https://soundcloud.com/rex-is-dead))</sub>
+
 ---
 
 ## 🚀 Flagship Production Systems

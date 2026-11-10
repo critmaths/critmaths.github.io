@@ -264,6 +264,44 @@
       font-weight: 600;
     }
 
+    .hero-subnotes {
+      margin-top: 1.1rem;
+      padding-top: 0.95rem;
+      border-top: 1px dashed var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .hero-subnote-design {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      font-style: italic;
+    }
+
+    .hero-subnote-music {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      opacity: 0.78;
+      font-family: var(--font-mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-subnote-music a {
+      color: var(--accent-cyan);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+
+    .hero-subnote-music a:hover {
+      color: var(--accent-emerald);
+    }
+
     .hero-cta-row {
       display: flex;
       flex-wrap: wrap;
@@ -821,6 +859,10 @@
           </h1>
           <p class="hero-lead">
             I’m <strong>Scott Forest (@critmaths)</strong>, founder of <strong>Critical Softworks</strong>. I architect and ship production software spanning <strong>multi-threaded Rust endpoint security</strong>, <strong>cryptographic Reticulum mesh networks</strong>, <strong>zero-JS encrypted desktop clients</strong>, and <strong>zero-cloud web defense systems</strong>.
+            <span class="hero-subnotes">
+              <span class="hero-subnote-design">When I’m not neck-deep in raw pointers, kernel traps, or firewall logic, I actually have quite a soft spot for clean front-end design, slick UI/UX, bespoke WordPress sorcery, and making pixels behave themselves.</span>
+              <span class="hero-subnote-music">♩ (Rumor has it I also compose music in secret: <a href="https://soundcloud.com/rex-is-dead" target="_blank" rel="noopener">soundcloud.com/rex-is-dead ↗</a>)</span>
+            </span>
           </p>
           <div class="hero-cta-row">
             <a href="#flagship-projects" class="btn btn-primary">
