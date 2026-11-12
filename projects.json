@@ -1,5 +1,5 @@
-{
-    "generatedAt":  "2026-11-09T23:18:59Z",
+﻿{
+    "generatedAt":  "2026-11-12T15:59:17Z",
     "profile":  {
                     "name":  "Scott Forest",
                     "handle":  "critmaths",
@@ -42,6 +42,38 @@
                                        "Win32 API"
                                    ],
                          "blueprint":  "[File / Process / Script Event]\n       |\n       +--\u003e Layer 1-2: Rust Rayon Parallel Scanner (SHA-256 + Entropy Heuristics)\n       +--\u003e Layer 3-4: YARA Pattern Engine + Windows AMSI In-Memory De-obfuscation\n       +--\u003e Layer 5:   Ransomware Canary Vault Traps (.omav_canary I/O Tripwire)\n       +--\u003e Layer 6:   Multi-Peer WireGuard Tunnel (ChaCha20-Poly1305 Zero-Log Shield)"
+                     },
+                     {
+                         "repo":  "grid-os",
+                         "title":  "GRID//OS - Cyber Desktop Shell",
+                         "subtitle":  "Futuristic Cyber-Tron / Matrix Desktop Shell \u0026 Parasitic Explorer.exe Optimizer",
+                         "category":  "realtime-ui",
+                         "featured":  true,
+                         "badge":  "Cyber Desktop \u0026 OS Ricing",
+                         "version":  "v2.8",
+                         "language":  "JavaScript \u0026 PowerShell Win32",
+                         "stars":  0,
+                         "pushedAt":  "2026-11-12T15:59:17Z",
+                         "repoUrl":  "https://github.com/critmaths/grid-os",
+                         "liveUrl":  "https://github.com/critmaths/grid-os",
+                         "downloadUrl":  "https://github.com/critmaths/grid-os/archive/refs/heads/main.zip",
+                         "summary":  "A next-generation cyberpunk desktop environment for Windows. Features real-time 3D Tron horizon grids, Katakana Matrix digital rain, polymorphic expanding icon pods, a borderless dissolving PowerShell terminal, and a Win32 EmptyWorkingSet kernel optimizer that trims explorer.exe RAM while running.",
+                         "highlights":  [
+                                            "Real-time 3D Tron horizon grid \u0026 Katakana Matrix rain with zero-GPU occlusion auto-sleep when other windows are maximized",
+                                            "Polymorphic smart nodes that expand into app launcher pods, live file explorers, WebAudio procedural synth tracks, and encrypted note scratchpads",
+                                            "EXPLORER//DIET engine with Win32 psapi.dll/kernel32.dll working-set trimming, 0.04ms kernel telemetry, and 0ms Hyper-Snap window animations",
+                                            "Borderless dissolving Matrix terminal connected directly to a live Windows PowerShell runspace with 192-bit cryptographic CSRF token isolation"
+                                        ],
+                         "stack":  [
+                                       "Win32 API",
+                                       "PowerShell 5.1+",
+                                       "HTML5 Canvas",
+                                       "Web Audio API",
+                                       "CSS3 Alpha Masks",
+                                       "psapi.dll",
+                                       "WebView2 / Edge"
+                                   ],
+                         "blueprint":  "[Windows Shell / Desktop Surface]\\n       |\\n       +--\u003e Win32 WorkerW / Progman Pinning (Lives directly behind standard apps)\\n       +--\u003e EXPLORER//DIET Kernel Engine (EmptyWorkingSet + Shell Hollowing)\\n       +--\u003e 60 FPS GPU-Accelerated 3D Tron Horizon Grid \u0026 Katakana Matrix Rain\\n       +--\u003e Polymorphic Smart Pods \u0026 Borderless Dissolving PowerShell Terminal"
                      },
                      {
                          "repo":  "neighbornet",
